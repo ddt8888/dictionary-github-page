@@ -1,7 +1,8 @@
 import './App.css'
 import React, { Component } from 'react'
-import animals from './DummyData'
-import words from './worddummy'
+// import animals from './DummyData'
+import Cards from './Carddummy'
+// import Card from './Card'
 
 class App extends Component {
     state = {
@@ -13,7 +14,7 @@ class App extends Component {
         return Math.floor(Math.random() * (max - min + 1)) + min
     }
     setNumber = () => {
-        this.setState({ index: this.pickRandomNumber(0, words.length - 1) })
+        this.setState({ index: this.pickRandomNumber(0, Cards.length - 1) })
     }
     checkDuplication = (numbers, picked) => {
         return numbers.find(num => num === picked)
@@ -49,7 +50,7 @@ class App extends Component {
     }
     render() {
         const { number, numbers, index } = this.state
-        const word_picked = words[index]
+        const word_picked = Cards[index]
         const Style = {
             background: 'tan',
             margin: '0 auto',
@@ -61,7 +62,7 @@ class App extends Component {
         return (
             <div style={Style}>
                 <h1>Lotto Random Number !</h1>
-                <h2>Lotto Numbers   {numbers}</h2>
+                <h2>Lotto Numbers <br></br>{numbers}</h2>
                 <h2> + Bonus Number {number}</h2>
                 <hr></hr>
                 <h1>Flash Card</h1>
