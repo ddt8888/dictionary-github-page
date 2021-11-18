@@ -1,15 +1,12 @@
-
 .Button{
-    all: unset;
-    color: white;
-    background: tomato;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-left: 10px;
-
-    display: flex;
-    align-items: center;
+    all: unset; 
+    color: white; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    /* margin-left: 10px;  */
+    display: inline-flex; 
+    align-items: center; 
     justify-content: center;
 }
 

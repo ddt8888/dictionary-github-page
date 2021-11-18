@@ -363,43 +363,398 @@
 //   }
 // }
 
-// 실제 제거까지 되는 단계
+// // 실제 제거까지 되는 단계
+// import './App.css';
+// import React, { Component } from 'react';
+// import words from './Carddummy'
+// import Button from './Button'
+
+// class App extends Component {
+//   state = {
+//     words: words
+//   }
+//   handleRemove = (id, e) => {
+//     const word = e.target.previousSibling.innerText
+//     console.log(word)
+//     console.log(id)
+//     alert(`You want to delete word - ${word}?`)
+
+//     const words = this.state.words.filter((w, index) => index !== id) // 제거하려는 단어의 id 와 일치하는 요소만 걸러냄 
+//     this.setState({ words })
+//   }
+//   render() {
+//     const { words } = this.state
+//     const wordStyle = {
+//       display: 'flex',
+//       alignItems: 'center',
+//       justifyContent: 'center'
+//     }
+//     return (
+//       <div>
+//         <h1 style={{ textAlign: 'center' }}>Word List</h1>
+//         {words.map((w, id) => {
+//           return (
+//             <div key={id} style={wordStyle}>
+//               <h2>{w.word}</h2>
+//               <Button size="small" type="button" handleClick={(e) => this.handleRemove(id, e)}>DELETE</Button>
+//             </div>
+//           )
+//         })}
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// // 간단한 사진 앨범 만들기
+// import './App.css'
+// import React, { Component } from 'react'
+// import images from './imageData'
+// import Button from './Button'
+
+// class App extends Component {
+//   state = {
+//     index: 0
+//   }
+
+//   // prev 버튼 클릭시 실행
+//   decreaseIndex = () => {
+//     const nextIndex = this.state.index - 1
+//     this.setState({ index: (nextIndex < 0) ? images.length - 1 : nextIndex })
+//   }
+
+//   // next 버튼 클릭시 실행
+//   increaseIndex = () => {
+//     const nextIndex = this.state.index + 1
+//     this.setState({ index: (nextIndex > images.length - 1) ? 0 : nextIndex })
+//   }
+
+//   render() {
+//     const { index } = this.state
+//     const { increaseIndex, decreaseIndex } = this
+//     // 사진 선택
+//     const path = images[index].src
+//     const title = images[index].title
+//     return (
+//       <div className="App">
+//         <div className="img-container">
+//           <img src={path} alt={title}></img>
+//         </div>
+
+//         <div className="control-btns">
+//           <Button handleClick={decreaseIndex}>Prev</Button>
+//           <Button handleClick={increaseIndex}>Next</Button>
+//         </div>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+// // 토글 사이드바 만들기
+// import './App.css'
+// import React, { Component } from 'react'
+// import Button from './Button'
+// import Sidebar from './Sidebar'
+
+// class App extends Component {
+//   state = {
+//     toggle: false,
+//     menus: [
+//       {
+//         icon: '♜',
+//         title: 'HOME'
+//       },
+//       {
+//         icon: '♞',
+//         title: 'ABOUT'
+//       },
+//       {
+//         icon: '☻',
+//         title: 'SETTING'
+//       },
+//       {
+//         icon: '♜',
+//         title: 'HOME'
+//       },
+//       {
+//         icon: '♞',
+//         title: 'ABOUT'
+//       },
+//       {
+//         icon: '☻',
+//         title: 'SETTING'
+//       }
+//     ]
+//   }
+
+//   // toggle Sidebar
+//   toggleMenu = () => {
+//     this.setState({ toggle: !this.state.toggle })
+//   }
+
+//   render() {
+//     const { toggle, menus } = this.state
+
+//     return (
+//       <div className="App">
+//         <Button handleClick={this.toggleMenu}>Toggle Sidebar</Button>
+
+//         <Sidebar open={toggle}>
+//           {/* children props */}
+//           {menus.map((menu, id) => {
+//             return <div className="menu" key={id}>{menu.icon} {menu.title} </div>
+//           })}
+//         </Sidebar>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+
+// ID password 만들기
+// import './App.css';
+// import React, { Component } from 'react';
+// import Button from './Button'
+
+// class App extends Component {
+//   state = {
+//     id: '',
+//     password: ''
+//   }
+//   //사용자 입력이 들어왔을때 실행
+//   handleChange = (e) => {
+//     const { name, value } = e.target
+//     console.log(name, value)
+//     this.setState({ [name]: value }) // 주석처리하면 사용자 입력이 되지 않음 
+//   }
+//   login = (e) => {
+//     e.preventDefault() // 새로고침 방지 
+//     console.log('login')
+//   }
+//   render() {
+//     const {
+//       id, password } = this.state
+//     return (
+//       <div className="App">
+//         <form>
+//           <label>ID <input type="text" placeholder="TYPE YOUR ID ..." name="id" value={id} onChange={this.handleChange}></input></label><br /><br />
+//           <label>PASSWORD <input type="password" placeholder="TYPE YOUR PASSWORD ..." name="password" value={password} onChange={this.handleChange}></input></label>
+//           <div className="login-btn"><Button handleClick={this.login}>Login</Button></div>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+// export default App;
+
+// // // 간단한 사진 앨범 만들기
+// import './App.css'
+// import React, { Component } from 'react'
+// import videos from './youtubeData'
+// import Button from './Button'
+
+// class App extends Component {
+//   state = {
+//     index: 0
+//   }
+
+//   // prev 버튼 클릭시 실행
+//   decreaseIndex = () => {
+//     const nextIndex = this.state.index - 1
+//     this.setState({ index: (nextIndex < 0) ? videos.length - 1 : nextIndex })
+//   }
+
+//   // next 버튼 클릭시 실행
+//   increaseIndex = () => {
+//     const nextIndex = this.state.index + 1
+//     this.setState({ index: (nextIndex > videos.length - 1) ? 0 : nextIndex })
+//   }
+
+//   render() {
+//     const { index } = this.state
+//     const { increaseIndex, decreaseIndex } = this
+//     // 사진 선택
+//     const path = videos[index].src
+//     const title = videos[index].title
+//     return (
+//       <div className="App">
+//         <div className="img-container">
+//           <embed className="video" src={path} alt={title}></embed>
+//         </div>
+
+//         <div className="control-btns">
+//           <Button handleClick={decreaseIndex}>Prev</Button>
+//           <Button handleClick={increaseIndex}>Next</Button>
+//         </div>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+// // 연습과제 2(https://syleemomo.tistory.com/59)
+// import './App.css'
+// import React, { Component } from 'react'
+// import Button from './Button'
+// import loginData from './LoginData'
+
+// class App extends Component {
+//   state = {
+//     isLogin: false,
+//     id: '',
+//     password: ''
+//   }
+
+//   handleChange = (e) => {
+//     const { name, value } = e.target
+//     this.setState({ [name]: value })
+//   }
+
+//   login = (e) => {
+//     e.preventDefault() // 새로고침 방지
+//     const { id, password } = this.state
+//     // 사용자 정보와 일치하는지 검사하는 로직
+//     if (id === loginData.USER_ID && password === loginData.USER_PASSWORD) {
+//       this.setState({ isLogin: true })
+//     } else {
+//       alert('You failed to login!')
+//     }
+//   }
+
+//   componentDidMount() {
+//     // 서버에서 사용자 정보 가져오기
+
+//   }
+
+//   render() {
+//     const { isLogin, id, password } = this.state
+//     const loginForm = (
+//       <form>
+//         <label>ID <input type="text" placeholder="TYPE YOUR ID ..." name="id" value={id} onChange={this.handleChange}></input></label><br /><br />
+//         <label>PASSWORD <input type="password" placeholder="TYPE YOUR PASSWORD ..." name="password" value={password} onChange={this.handleChange}></input></label>
+//         <div className="login-btn"><Button handleClick={this.login}>Login</Button></div>
+//       </form>
+//     )
+//     const homePage = (
+//       <h1>Home Page</h1>
+//     )
+//     return (
+//       <div className="App">
+//         {isLogin ? homePage : loginForm}
+//       </div>
+//     )
+//   }
+// }
+
+// export default App
+
+// // 사용자가 선택한 다수의 이미지 보여주기
+// import './App.css';
+// import React, { Component } from 'react';
+// import Button from './Button'
+
+// class App extends Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       files: []
+//     }
+//     this.fileInput = React.createRef() // ref 생성하기 
+//   }
+//   isValid = (type) => {
+//     return type === 'image'
+//   }
+
+//   handleChange = (e) => {
+//     const files = e.target.files
+//     const uploadedFiles = []
+
+//     for (let file of files) {
+//       if (this.isValid(file.type.split('/')[0])) {
+//         console.log(file.name)
+
+//         const name = file.name
+//         const imgSrc = URL.createObjectURL(file)
+//         uploadedFiles.push({ name, imgSrc })
+//       } else {
+//         alert(`file [${file.name}] type is not valid !`)
+//       }
+//     }
+//     this.setState({ files: uploadedFiles })
+//   }
+//   openFileWindow = () => {
+//     this.fileInput.current.click() // ref 사용하기
+//   }
+
+//   render() {
+//     const { files } = this.state
+
+//     return (
+//       <div className="App">
+//         {files.length !== 0 && files.map((file, id) => {
+//           return (
+//             <div key={id}>
+//               <h3>{file.name}</h3>
+//               <img src={file.imgSrc} alt={file.name} width="70px" height="100px"></img>
+//             </div>
+//           )
+//         })}
+//         <input className="Upload" type="file" onChange={this.handleChange} ref={this.fileInput} accept="image/*" multiple></input>
+//         <Button handleClick={this.openFileWindow}>Upload</Button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+
 import './App.css';
 import React, { Component } from 'react';
-import words from './Carddummy'
+import { Route, Routes } from 'react-router-dom';
+import { Home, About, NotFound, Post } from './pages';
+import Menu from './Menu'
+import Sidebar from './Sidebar'
 import Button from './Button'
 
 class App extends Component {
+  homeMenu = [ // 객체에서 멤버변수
+    { url: "/", name: "Home" },
+    { url: "about", name: "About" },
+    { url: "posts", name: "Post" }
+  ]
   state = {
-    words: words
+    open: false
   }
-  handleRemove = (id, e) => {
-    const word = e.target.previousSibling.innerText
-    console.log(word)
-    console.log(id)
-    alert(`You want to delete word - ${word}?`)
 
-    const words = this.state.words.filter((w, index) => index !== id) // 제거하려는 단어의 id 와 일치하는 요소만 걸러냄 
-    this.setState({ words })
+  // Sidebar on/off handler
+  showSidebar = () => {
+    this.setState({ open: !this.state.open })
   }
+
   render() {
-    const { words } = this.state
-    const wordStyle = {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
+    const { open } = this.state
+    const { homeMenu } = this
     return (
-      <div>
-        <h1 style={{ textAlign: 'center' }}>Word List</h1>
-        {words.map((w, id) => {
-          return (
-            <div key={id} style={wordStyle}>
-              <h2>{w.word}</h2>
-              <Button size="small" type="button" handleClick={(e) => this.handleRemove(id, e)}>DELETE</Button>
-            </div>
-          )
-        })}
+      <div className="App">
+        <Button handleClick={this.showSidebar}>Menu</Button>
+        <Sidebar open={open}>
+          <Menu menus={homeMenu}></Menu>
+        </Sidebar>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/posts" element={<Post />}>
+            <Route path=":postId" element={<Post />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     );
   }
