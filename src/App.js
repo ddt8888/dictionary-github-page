@@ -715,49 +715,366 @@
 // export default App;
 
 
+// import './App.css';
+// import React, { Component } from 'react';
+// import { Route, Routes } from 'react-router-dom';
+// import { Home, About, NotFound, Post } from './pages';
+// import Menu from './Menu'
+// import Sidebar from './Sidebar'
+// import Button from './Button'
+
+// class App extends Component {
+//   homeMenu = [ // 객체에서 멤버변수
+//     { url: "/", name: "Home" },
+//     { url: "about", name: "About" },
+//     { url: "posts", name: "Post" }
+//   ]
+//   state = {
+//     open: false
+//   }
+
+//   // Sidebar on/off handler
+//   showSidebar = () => {
+//     this.setState({ open: !this.state.open })
+//   }
+
+//   render() {
+//     const { open } = this.state
+//     const { homeMenu } = this
+//     return (
+//       <div className="App">
+//         <Button handleClick={this.showSidebar}>Menu</Button>
+//         <Sidebar open={open}>
+//           <Menu menus={homeMenu}></Menu>
+//         </Sidebar>
+//         <Routes>
+//           <Route exact path="/" element={<Home />} />
+//           <Route exact path="/about" element={<About />} />
+//           <Route exact path="/posts" element={<Post />}>
+//             <Route path=":postId" element={<Post />} />
+//           </Route>
+//           <Route path="*" element={<NotFound />} />
+//         </Routes>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// // 버튼을 누를때마다 카운드 1씩 증가 - 클래스형
+// import './App.css'
+// import React, { Component } from 'react'
+// import Button from './Button'
+
+// class App extends Component {
+//   state = {
+//     count: 0
+//   }
+
+//   increaseCount = () => {
+//     this.setState({ count: this.state.count + 1 })
+//   }
+
+//   render() {
+//     const { count } = this.state
+//     return (
+//       <div className="App">
+//         <h1>Count : {count}</h1>
+//         <Button handleClick={this.increaseCount}>Counting Star</Button>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+// // 버튼을 누를때마다 카운드 1씩 증가 (2) - 함수형
+// import './App.css'
+// import React, { useState } from 'react'
+// import Button from './Button'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+//   const increaseCount = () => {
+//     setCount(count + 1)
+//   }
+
+//   return (
+//     <div className="App">
+//       <h1>Count : {count}</h1>
+//       <Button handleClick={increaseCount}>Counting Star</Button>
+//     </div>
+//   )
+
+// }
+
+// export default App;
+
+// // 이름바꾸기 버튼 만들기 + 새 할 일 추가 버튼 만들기 - 클래스형
+// import './App.css'
+// import React, { Component } from 'react'
+// import Button from './Button'
+
+// class App extends Component {
+//   state = {
+//     user: {
+//       name: 'kimsang',
+//       age: 27,
+//       fruits: ["mandarine", "melon", "shinemusket"]
+//     },
+//     todos: [
+//       { title: 'cleaning', done: false, description: 'cleaning my living room' },
+//       { title: 'learning', done: false, description: 'learing react on tomorrow morning' },
+//       { title: 'drinking', done: false, description: 'drinking soju with close friends' }
+//     ]
+//   }
+
+//   changeName = () => {
+//     const newUser = { ...this.state.user, name: 'new name' }
+//     this.setState({ user: newUser })
+//   }
+
+//   addNewTodo = () => {
+//     const newTodo = {
+//       title: 'checking', done: true, description: 'checking my state of score'
+//     }
+//     const todos = [...this.state.todos, newTodo]
+//     this.setState({ todos })
+//   }
+
+//   render() {
+//     const { user, todos } = this.state
+//     const { changeName, addNewTodo } = this
+//     return (
+//       <div className="App">
+//         <h1>User Information</h1>
+//         <h2>{user.name} ({user.age})</h2>
+//         <h3>favorite fruits: {user.fruits.join(", ")}</h3>
+//         <Button handleClick={changeName}>Change Name</Button>
+
+//         <h1>Todo List</h1>
+//         {todos.map((todo, id) => {
+//           return (
+//             <div key={id}>
+//               <h2>{todo.title} - ({todo.done ? "finished" : "not yet done"})</h2>
+//               <p>{todo.description}</p>
+//             </div>
+//           )
+//         })}
+//         <Button handleClick={addNewTodo}>Add Todo</Button>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+// // 이름바꾸기 버튼 만들기 + 새 할 일 추가 버튼 만들기 - 함수형
+// import './App.css';
+// import React, { useState } from 'react';
+// import Button from './Button'
+
+// function App() {
+//   const [user, setUser] = useState({
+//     name: 'syleemomo',
+//     age: 23,
+//     fruits: ["apple", "banana", "orange"]
+//   })
+//   const [todos, setTodos] = useState([
+//     { title: 'cleaning', done: false, description: 'cleaning my living room' },
+//     { title: 'learning', done: false, description: 'learing react on tomorrow morning' },
+//     { title: 'drinking', done: false, description: 'drinking soju with close friends' }
+//   ])
+//   const changeName = () => {
+//     const newUser = { ...user, name: "new name" }
+//     setUser(newUser)
+//   }
+//   const addNewTodo = () => {
+//     const newTodo = { title: 'checking', done: true, description: 'checking my state of score' }
+//     const newTodos = [...todos, newTodo]
+//     setTodos(newTodos)
+//   }
+
+//   return (
+//     <div className="App">
+//       <h1>User Information</h1>
+//       <h2>{user.name} ({user.age})</h2>
+//       <h3>favorite food: {user.fruits.join(" ")}</h3>
+//       <Button handleClick={changeName}>Change Name</Button>
+
+//       <h1>Todo List</h1>
+//       {todos.map((todo, id) => {
+//         return (
+//           <div key={id}>
+//             <h2>{todo.title} - ({todo.done ? "finished" : "not yet done"})</h2>
+//             <p>{todo.description}</p> </div>
+//         )
+//       })}
+//       <Button handleClick={addNewTodo}>Add Todo</Button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// //effect hook 연습 (Button 누를떄 마다 count)
+// import './App.css';
+// import React, { useEffect, useState } from 'react';
+// import Button from './Button'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+//   const increaseCount = () => {
+//     setCount(count + 1)
+//   }
+
+//   // componentDidMount, componentDidUpdate 와 유사함
+//   useEffect(() => {
+//     document.title = `You clicked ${count} times`
+//   })
+
+//   return (
+//     <div className="App">
+//       <h1>Count: {count}</h1>
+//       <Button handleClick={increaseCount}>Increase Number</Button>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+// // count 초마다 1씩 증가
+// import './App.css';
+// import React, { useEffect, useState } from 'react';
+
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const increaseCount = () => {
+//     setCount(count + 1)
+//   }
+//   useEffect(() => {
+//     const timerID = setInterval(increaseCount, 1000)
+//     return () => {
+//       clearInterval(timerID)
+//     }
+//   })
+
+//   return (
+//     <div className="App">
+//       <h1>Increase Count automatically !</h1>
+//       <h2>Count: {count}</h2>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// // count 초마다 1씩 증가 + 초마다 랜덤 숫자 출력
+// import './App.css';
+// import React, { useEffect, useState } from 'react';
+
+// function App() { // 1초마다 자동으로 숫자를 카운팅하는 로직 
+//   const [count, setCount] = useState(0);
+//   const increaseCount = () => {
+//     setCount(count + 1)
+//   }
+//   useEffect(() => {
+//     const timerID = setInterval(increaseCount, 1000)
+//     return () => {
+//       clearInterval(timerID)
+//     }
+//   }) // 1초마다 자동으로 랜덤한 숫자를 보여주는 로직 
+
+//   const [number, setNumber] = useState(0)
+//   const pickRandomNumber = () => {
+//     const randNum = Math.floor(Math.random() * 100)
+//     setNumber(randNum)
+//   }
+//   useEffect(() => {
+//     const timerID = setInterval(pickRandomNumber, 1000)
+//     return () => {
+//       clearInterval(timerID)
+//     }
+//   })
+//   return (
+//     <div className="App">
+//       <h1>Increase Count automatically !</h1>
+//       <h2>Count: {count}</h2> <br />
+//       <h1>Pick Random Number !</h1>
+//       <h2>Random Numbr: {number}</h2>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import './App.css';
+// import useRandomNumber from './useRandomNumber';
+// import animals from './animalData'
+// import words from './dictionaryData'
+
+// function App() {
+//   // 이미지 갤러리 로직 
+//   const randIndex = useRandomNumber(0, animals.length - 1)
+//   const animal = animals[randIndex]
+
+//   // 플래쉬 카드 로직 
+//   const randIndex2 = useRandomNumber(0, words.length - 1)
+//   const dic = words[randIndex2]
+
+//   return (
+//     <div style={{ width: '50%', margin: '0 auto', textAlign: 'center' }}>
+//       <h1>Image Gallary</h1>
+//       <img src={animal.src} alt={animal.title} />
+//       <h2>{animal.title}</h2> <br />
+
+//       <h1>Plash Card</h1>
+//       <h2>{dic.word}</h2>
+//       <h3>{dic.meaning}</h3>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+
+// 컴포넌트 마운트와 해제시에만 Effect Hook 실행하기
 import './App.css';
-import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Home, About, NotFound, Post } from './pages';
-import Menu from './Menu'
-import Sidebar from './Sidebar'
-import Button from './Button'
+import React, { useState, useEffect } from 'react';
 
-class App extends Component {
-  homeMenu = [ // 객체에서 멤버변수
-    { url: "/", name: "Home" },
-    { url: "about", name: "About" },
-    { url: "posts", name: "Post" }
-  ]
-  state = {
-    open: false
-  }
+function App() { // 카운팅을 처리하는 로직 
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+    console.log('useEffect - Count')
+  }); // 서버에서 데이터를 가져오는 로직 
+  const [movies, setMovies] = useState([])
 
-  // Sidebar on/off handler
-  showSidebar = () => {
-    this.setState({ open: !this.state.open })
-  }
+  useEffect(() => {
+    fetch('https://yts.mx/api/v2/list_movies.json?limit=12')
+      .then(res => res.json())
+      .then(result => {
+        const { data: { movies } } = result
+        console.log(movies)
+        console.log('useEffect - Movies')
+        setMovies(movies)
+      })
+  })
 
-  render() {
-    const { open } = this.state
-    const { homeMenu } = this
-    return (
-      <div className="App">
-        <Button handleClick={this.showSidebar}>Menu</Button>
-        <Sidebar open={open}>
-          <Menu menus={homeMenu}></Menu>
-        </Sidebar>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/posts" element={<Post />}>
-            <Route path=":postId" element={<Post />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}> Click me </button> <br /><br />
+      {movies.map((movie, id) => {
+        return (
+          <div key={id}>{movie.title}</div>
+        )
+      })}
+    </div>
+  );
 }
 
 export default App;
